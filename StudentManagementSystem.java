@@ -73,7 +73,7 @@ public class StudentManagementSystem {
 
         String sql = "INSERT INTO students (name, department, email) VALUES (?, ?, ?)";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = DBConnection.getCon();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, name);
@@ -96,7 +96,7 @@ public class StudentManagementSystem {
 
         String sql = "SELECT * FROM students";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = DBConnection.getCon();
              PreparedStatement ps = con.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
@@ -131,7 +131,7 @@ public class StudentManagementSystem {
 
         String sql = "SELECT * FROM students WHERE id = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = DBConnection.getCon();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, id);
@@ -171,7 +171,7 @@ public class StudentManagementSystem {
 
         String sql = "UPDATE students SET name = ?, department = ?, email = ? WHERE id = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = DBConnection.getCon();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, name);
@@ -200,7 +200,7 @@ public class StudentManagementSystem {
 
         String sql = "DELETE FROM students WHERE id = ?";
 
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = DBConnection.getCon();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, id);

@@ -13,7 +13,7 @@ public class DBConnection {
     // Replace this with your MySQL root password
     private static final String PASSWORD = "praisegod@06";
 
-    public static Connection getConnection() throws SQLException {
+    public static Connection getCon() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 }
